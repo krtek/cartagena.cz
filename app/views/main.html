@@ -1,0 +1,7 @@
+<div class="intro-text" ng-if="display">
+  <span class="glyphicon glyphicon-plane"></span>
+  <span ng-if="days && days > 5">{{days}} dní</span>
+  <span ng-if="days && days < 5 && days > 1">{{days}} dny</span>
+  <span ng-if="days && days == 1">{{days}} den</span>
+  <span>{{hours}}:</span><span>{{minutes}}:</span><span>{{seconds}},</span><small><span>{{millis}}</span></small>
+</div>
