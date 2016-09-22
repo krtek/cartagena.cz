@@ -5,19 +5,16 @@ var PHOTOSET_ID = '72157638482375066';
 
 
 angular.module('cartagenaApp')
-  .directive('flickrBackground', function(Flickr, $http, $timeout) {
+  .directive('flickrBackground', function(Flickr, $http) {
     var _flickrBackground = function($scope, $element) {
       var _next = function() {
-        $($element).css('background-color', 'silver');
-        $($element).css('background-image', '');
         Flickr.getPhotos().then(function(photos) {
           var photo = _.sample(photos);
           var url = 'https://farm' + photo.farm + '.staticflickr.com/' +
             photo.server + '/' + photo.id + '_' + photo.secret + '_b.jpg';
-            $http.get(url);
-            $timeout(function() {
-                $($element).css('background-image', 'url(\'' + url + '\')');
-            }, 400);
+            $http.get(url).then(function() {
+              $($element).css('background-image', 'url(\'' + url + '\')');
+            });
         });
       };
 

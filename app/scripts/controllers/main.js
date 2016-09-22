@@ -44,12 +44,16 @@ angular.module('cartagenaApp')
       now.add($scope.seconds, 'seconds');
 
       $scope.millis = departure.diff(now, 'millis');
+
+      //Leftpad millis
       if ($scope.millis < 100) {
         $scope.millis = '0' + $scope.millis;
       }
-      
       if ($scope.millis < 10) {
         $scope.millis = '00' + $scope.millis;
+      }
+      if ($scope.millis === 0) {
+        $scope.millis = '000';
       }
 
       $timeout(tick, 100);
