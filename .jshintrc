@@ -12,6 +12,8 @@
   "unused": true,
   "globals": {
     "angular": false,
-    "moment": false
+    "moment": false,
+    "$": false,
+    "_": false
   }
 }

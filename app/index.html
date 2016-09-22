@@ -15,25 +15,35 @@
     <!-- endbuild -->
   </head>
   <body ng-app="cartagenaApp">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+    <!--[if lte IE 8]> <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p> <![endif]-->
 
     <!-- Add your site or application content here -->
 
     <div class="container-fluid main" data-flickr-background>
       <div ng-view=""></div>
     </div>
+    <div class="container-fluid footer" ng-controller="FooterCtrl">
+      <div class="col-xs-12">
+        <button class="btn btn-default btn-lg pull-right" ng-click="next()">Další</button>
+      </div>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <script>
+      !function(A, n, g, u, l, a, r) {
+        A.GoogleAnalyticsObject = l,
+        A[l] = A[l] || function() {
+          (A[l].q = A[l].q || []).push(arguments)
+        },
+        A[l].l =+ new Date,
+        a = n.createElement(g),
+        r = n.getElementsByTagName(g)[0],
+        a.src = u,
+        r.parentNode.insertBefore(a, r)
+      }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-       ga('create', 'UA-339099-10');
-       ga('send', 'pageview');
+      ga('create', 'UA-339099-10');
+      ga('send', 'pageview');
     </script>
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -50,10 +60,10 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/directives/flickr-background.js"></script>
-        <!-- endbuild -->
-</body>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/directives/flickr-background.js"></script>
+    <!-- endbuild -->
+  </body>
 </html>
