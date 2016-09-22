@@ -47,6 +47,10 @@ angular.module('cartagenaApp')
       if ($scope.millis < 100) {
         $scope.millis = '0' + $scope.millis;
       }
+      
+      if ($scope.millis < 10) {
+        $scope.millis = '00' + $scope.millis;
+      }
 
       $timeout(tick, 100);
     };
