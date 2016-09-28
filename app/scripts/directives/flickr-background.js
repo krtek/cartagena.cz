@@ -1,7 +1,7 @@
 "use strict";
 
 var API_KEY = '5d4e7b2733ce0572a15b412c36bbf941';
-var PHOTOSET_ID = '72157638482375066';
+var PHOTOSET_IDS = ['72157638482375066', '72157674403312466'];
 
 
 angular.module('cartagenaApp')
@@ -9,7 +9,7 @@ angular.module('cartagenaApp')
     var _flickrBackground = function($scope, $element) {
       var _next = function() {
         Flickr.getPhotos().then(function(photos) {
-          var photo = _.sample(photos);
+          var photo = _.sample(photos);          
           var url = 'https://farm' + photo.farm + '.staticflickr.com/' +
             photo.server + '/' + photo.id + '_' + photo.secret + '_b.jpg';
             $http.get(url).then(function() {
@@ -38,7 +38,7 @@ angular.module('cartagenaApp')
         } else {
           $http.get('https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&' +
             'api_key=' + API_KEY +
-            '&photoset_id=' + PHOTOSET_ID +
+            '&photoset_id=' + _.sample(PHOTOSET_IDS) +
             '&format=json&nojsoncallback=1').then(function(result) {
             cache = result.data.photoset.photo;
             resolve(result.data.photoset.photo);
