@@ -5866,11 +5866,12 @@ body {
       text-decoration: none;
       font-weight: 500; }
   .footer .row {
-    padding-left: 2rem; }
+    margin-left: 2rem;
+    margin-right: 0; }
   .footer .btn {
-    margin-right: 20px;
-    margin-bottom: 20px;
-    margin-top: 5px;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
     opacity: 0.8; }
 
 @media (min-width: 400px) {
