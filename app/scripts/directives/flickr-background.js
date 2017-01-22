@@ -42,17 +42,30 @@ angular.module('cartagenaApp')
 angular.module('cartagenaApp')
   .service('Flickr', function($q, $http) {
     var cache;
+
+    var _getPhotos = function(photoset) {
+      return $http.get('https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&' +
+        'api_key=' + API_KEY +
+        '&photoset_id=' + photoset +
+        '&format=json&nojsoncallback=1');
+    };
+
     this.getPhotos = function() {
       return $q(function(resolve) {
         if (cache) {
           resolve(cache);
         } else {
-          $http.get('https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&' +
-            'api_key=' + API_KEY +
-            '&photoset_id=' + _.sample(PHOTOSET_IDS) +
-            '&format=json&nojsoncallback=1').then(function(result) {
-            cache = result.data.photoset.photo;
-            resolve(result.data.photoset.photo);
+          var promises = [];
+          //load photos for all photoset ids into one array
+          PHOTOSET_IDS.forEach(function(id) {
+            promises.push(_getPhotos(id));
+          });
+          $q.all(promises).then(function(results) {
+            cache = [];
+            results.forEach(function(result) {
+              cache = cache.concat(result.data.photoset.photo);
+            });
+            resolve(cache);
           });
         }
       });
