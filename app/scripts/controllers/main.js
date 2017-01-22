@@ -12,7 +12,7 @@ angular.module('cartagenaApp')
     moment.locale('cs');
 
     var tick = function() {
-      var departure = moment("201611100310", "YYYYMMDDHHmm");
+      var departure = moment("201711100310", "YYYYMMDDHHmm");
       var now = moment();
 
       if (departure.isBefore(now)) {
@@ -54,6 +54,10 @@ angular.module('cartagenaApp')
       }
       if ($scope.millis === 0) {
         $scope.millis = '000';
+      }
+
+      if($scope.millis.length > 3) {
+        $scope.millis = $scope.millis.slice(1);
       }
 
       $timeout(tick, 100);
