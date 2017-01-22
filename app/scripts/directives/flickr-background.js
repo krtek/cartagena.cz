@@ -7,14 +7,25 @@ var PHOTOSET_IDS = ['72157638482375066', '72157674403312466'];
 angular.module('cartagenaApp')
   .directive('flickrBackground', function(Flickr, $http) {
     var _flickrBackground = function($scope, $element) {
+      var nextPhoto;
+
+      var _createUrl = function(photo) {
+        return 'https://farm' + photo.farm + '.staticflickr.com/' +
+          photo.server + '/' + photo.id + '_' + photo.secret + '_b.jpg';
+      };
+
       var _next = function() {
         Flickr.getPhotos().then(function(photos) {
-          var photo = _.sample(photos);          
-          var url = 'https://farm' + photo.farm + '.staticflickr.com/' +
-            photo.server + '/' + photo.id + '_' + photo.secret + '_b.jpg';
-            $http.get(url).then(function() {
-              $($element).css('background-image', 'url(\'' + url + '\')');
-            });
+          //There is no nextPhoto preloaded (first call?)
+          if (!nextPhoto) {
+            nextPhoto = _.sample(photos);
+            $http.get(_createUrl(nextPhoto));
+          }
+          $($element).css('background-image', 'url(\'' + _createUrl(nextPhoto) + '\')');
+
+          //Preload next photo
+          nextPhoto = _.sample(photos);
+          $http.get(_createUrl(nextPhoto));
         });
       };
 
