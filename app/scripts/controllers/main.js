@@ -71,4 +71,8 @@ angular.module('cartagenaApp')
     $scope.next = function() {
       $rootScope.$broadcast('next');
     };
+
+    $scope.$on('info', function(event, info) {
+      $scope.info = info.photo;
+    });
   });

@@ -21,8 +21,13 @@
       <div ng-view=""></div>
     </div>
     <div class="container-fluid footer" ng-controller="FooterCtrl">
-      <div class="col-xs-12">
-        <button class="btn btn-default btn-lg pull-right" ng-click="next()">Další <span class="glyphicon glyphicon-arrow-right"></span> </button>
+      <div class="row">
+        <div class="col-xs-6">
+          <h4>©&nbsp;{{info.owner.username}}, <a ng-href="{{info.urls.url[0]._content}}" target="_blank">{{info.title._content}}.{{info.originalformat}}</a></h4>
+        </div>
+        <div class="col-xs-6">
+          <button class="btn btn-default btn-lg pull-right" ng-click="next()">Další <span class="glyphicon glyphicon-arrow-right"></span> </button>
+        </div>
       </div>
     </div>
 

@@ -5,13 +5,22 @@ var PHOTOSET_IDS = ['72157638482375066', '72157674403312466', '72157677316729576
 
 
 angular.module('cartagenaApp')
-  .directive('flickrBackground', function(Flickr, $http) {
+  .directive('flickrBackground', function($rootScope, Flickr, $http) {
     var _flickrBackground = function($scope, $element) {
       var nextPhoto;
 
       var _createUrl = function(photo) {
         return 'https://farm' + photo.farm + '.staticflickr.com/' +
           photo.server + '/' + photo.id + '_' + photo.secret + '_b.jpg';
+      };
+
+      var broadcastInfo = function(photo) {
+        $http.get('https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&' +
+          'api_key=' + API_KEY + '&' +
+          'photo_id=' + photo.id +
+          '&format=json&nojsoncallback=1').then(function(response) {
+          $rootScope.$broadcast('info', response.data);
+        });
       };
 
       var _next = function() {
@@ -21,6 +30,7 @@ angular.module('cartagenaApp')
             nextPhoto = _.sample(photos);
             $http.get(_createUrl(nextPhoto));
           }
+          broadcastInfo(nextPhoto);
           $($element).css('background-image', 'url(\'' + _createUrl(nextPhoto) + '\')');
 
           //Preload next photo
