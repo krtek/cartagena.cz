@@ -414,7 +414,7 @@ module.exports = function(grunt) {
             '.htaccess',
             '*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
           ]
         }, {
           expand: true,
@@ -500,6 +500,7 @@ module.exports = function(grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
+    'copy:styles',
     'cdnify',
     'cssmin',
     'uglify',
