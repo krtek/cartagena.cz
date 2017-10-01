@@ -12,7 +12,7 @@ angular.module('cartagenaApp')
     moment.locale('cs');
 
     var tick = function() {
-      var departure = moment("201711100310", "YYYYMMDDHHmm");
+      var departure = moment("201711100600", "YYYYMMDDHHmm");
       var now = moment();
 
       if (departure.isBefore(now)) {

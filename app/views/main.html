@@ -1,7 +1,27 @@
-<div class="intro-text" ng-if="display">
-  <span class="glyphicon glyphicon-plane"></span>
-  <span ng-if="days && days > 5">{{days}} dní</span>
-  <span ng-if="days && days < 5 && days > 1">{{days}} dny</span>
-  <span ng-if="days && days == 1">{{days}} den</span>
-  <span>{{hours}}:</span><span>{{minutes}}:</span><span>{{seconds}},</span><small><span>{{millis}}</span></small>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="intro-text">
+      Costa&nbsp;Rica 2017
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="subtext">
+      Pura vida!
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="countdown" ng-if="display">
+      <span class="glyphicon glyphicon-plane"></span>&nbsp;
+      <span ng-if="days && days > 5">{{days}}&nbsp;dní</span>
+      <span ng-if="days && days < 5 && days > 1">{{days}}&nbspdny</span>
+      <span ng-if="days && days == 1">{{days}}&nbspden</span>
+      <span>{{hours}}:</span><span>{{minutes}}:</span><span>{{seconds}},</span><small><span>{{millis}}</span></small>
+    </div>
+  </div>
 </div>

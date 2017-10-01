@@ -1,72 +1,81 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Cartagena.cz</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-  </head>
-  <body ng-app="cartagenaApp">
-    <!--[if lte IE 8]> <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p> <![endif]-->
 
-    <!-- Add your site or application content here -->
+<head>
+  <meta charset="utf-8">
+  <title>SanJose.cz</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
 
-    <div class="container-fluid main" data-flickr-background>
-      <div ng-view=""></div>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+
+<body ng-app="cartagenaApp">
+  <!--[if lte IE 8]> <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p> <![endif]-->
+
+  <!-- Add your site or application content here -->
+
+  <div class="container-fluid main" data-flickr-background>
+    <div ng-view=""></div>
+  </div>
+  <div class="row footer" ng-controller="FooterCtrl">
+    <div class="col-xs-6">
+      <h4 ng-if="info">©&nbsp;{{info.owner.username}}, <a ng-href="{{info.urls.url[0]._content}}" target="_blank">{{info.title._content}}.{{info.originalformat}}</a></h4>
     </div>
-    <div class="container-fluid footer" ng-controller="FooterCtrl">
-      <div class="row">
-        <div class="col-xs-6">
-          <h4 ng-if="info">©&nbsp;{{info.owner.username}}, <a ng-href="{{info.urls.url[0]._content}}" target="_blank">{{info.title._content}}.{{info.originalformat}}</a></h4>
-        </div>
-        <div class="col-xs-6">
-          <button class="btn btn-default btn-lg pull-right" ng-click="next()">Další <span class="glyphicon glyphicon-arrow-right"></span> </button>
-        </div>
-      </div>
+    <div class="col-xs-6">
+      <button class="btn btn-default btn-lg pull-right" ng-click="next()"><span class="glyphicon glyphicon-arrow-right"></span> </button>
     </div>
+  </div>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-    <script>
-      !function(A, n, g, u, l, a, r) {
-        A.GoogleAnalyticsObject = l,
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+  <script>
+    ! function(A, n, g, u, l, a, r) {
+      A.GoogleAnalyticsObject = l,
         A[l] = A[l] || function() {
           (A[l].q = A[l].q || []).push(arguments)
         },
-        A[l].l =+ new Date,
+        A[l].l = +new Date,
         a = n.createElement(g),
         r = n.getElementsByTagName(g)[0],
         a.src = u,
         r.parentNode.insertBefore(a, r)
-      }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-      ga('create', 'UA-339099-10');
-      ga('send', 'pageview');
-    </script>
+    ga('create', 'UA-339099-10');
+    ga('send', 'pageview');
+  </script>
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/lodash/lodash.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
+  <script src="bower_components/lodash/lodash.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
 
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/directives/flickr-background.js"></script>
-    <!-- endbuild -->
-  </body>
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/directives/flickr-background.js"></script>
+  <!-- endbuild -->
+</body>
+
 </html>

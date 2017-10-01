@@ -1,7 +1,7 @@
 "use strict";
 
 var API_KEY = '5d4e7b2733ce0572a15b412c36bbf941';
-var PHOTOSET_IDS = ['72157638482375066', '72157674403312466', '72157677316729576'];
+var PHOTOSET_IDS = ['72157689002978926'];
 
 
 angular.module('cartagenaApp')

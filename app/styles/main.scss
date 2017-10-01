@@ -1,6 +1,6 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/"; // bower:scss
- @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
- // endbower
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -31,32 +31,54 @@ body {
 }
 
 .intro-text {
-  padding-top: 200px;
-  padding-bottom: 200px;
+  padding-top: 2rem;
   font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
   text-transform: uppercase;
-  font-weight: 700;
-  font-size: 50px;
-  line-height: 75px;
-  margin-bottom: 50px;
+  font-weight: 600;
+  font-size: 4.5rem;
+  color: lightgray;
+  text-align: center;
+  text-shadow: 1px 1px darkgray;
+  line-height: 5rem;
+}
+
+.subtext {
+  padding-top: 3rem;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  text-transform: uppercase;
+  font-weight: 200;
+  font-size: 3rem;
   color: white;
   text-align: center;
+  font-style: italic;
+  text-shadow: 1px 1px darkgray;
+}
+
+.countdown {
+  padding-top: 10rem;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 5rem;
+  line-height: 6rem;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px darkgray;
 }
 
 .footer {
   position: absolute;
   bottom: 0;
-  width: 100%;
   /* Set the fixed height of the footer here */
-  height: 80px;
-  //background-color: #f5f5f5;
+  height: 8rem;
+  width: 100%;
   h4 {
-    color: white;
+    color: lightgray;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 300;
 
     a {
-      color: white;
+      color: lightgray;
       text-decoration: none;
       font-weight: 500;
     }
@@ -68,21 +90,41 @@ body {
   }
 
   .btn {
-    margin-right: 2rem;
-    margin-bottom:2rem;
+    margin-bottom: 2rem;
     margin-top: 1rem;
     opacity: 0.8;
   }
 }
 @media (min-width: 400px) {
   .intro-text {
-    font-size: 60px;
+    font-size: 6rem;
+  }
+  .countdown {
+    font-size: 6rem;
+  }
+
+  .subtext {
+    font-size: 4rem;
   }
 }
 @media (min-width: 768px) {
   .intro-text {
-    padding-top: 300px;
-    padding-bottom: 200px;
-    font-size: 75px;
+    padding-top: 10rem;
+    font-size: 7.5rem;
   }
+
+  .countdown {
+    padding-top: 25rem;
+    font-size: 7.5rem;
+  }
+
+  .subtext {
+    font-size: 5 rem;
+  }
+
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
 }
